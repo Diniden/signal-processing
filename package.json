@@ -1,11 +1,13 @@
 {
   "name": "@diniden/signal-processing",
   "version": "1.0.0",
-  "main": "dist/index.js",
+  "main": "dist/lib.js",
+  "types": "dist/src/index.d.ts",
   "scripts": {
     "dev": "runner run --no-docker",
     "clean": "runner clean",
-    "start": "node dist/server"
+    "start": "node dist/server",
+    "build": "NODE_ENV=production tsc -d --emitDeclarationOnly --outDir dist/src --project ./tsconfig.json && runner build lib"
   },
   "keywords": [],
   "author": "Diniden",

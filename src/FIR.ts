@@ -1,4 +1,4 @@
-import { Vec2 } from '@vega-studio/deltav';
+import { Vec2 } from './types';
 
 /**
  * Performs a frequency filtration across a provided streamed in signal.
@@ -58,7 +58,7 @@ export class FIRFilter {
     const current = this.filter.slice(0);
     const toProcess = values.slice(0);
     this.reset(start);
-    const out = [];
+    const out: number[] = [];
 
     while (toProcess.length > 0) {
       out.push(this.stream(toProcess.shift() || 0));
