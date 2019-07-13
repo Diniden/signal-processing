@@ -1,0 +1,18 @@
+# App Stuff
+node_modules
+.cache
+dist/client
+dist/server
+
+# IDE Stuff
+.idea
+.vscode
+config.codekit3
+
+# Metadata
+.DS_Store
+thumbs.db
+
+# These things cause more problems than they solve
+package-lock.json
+yarn.lock

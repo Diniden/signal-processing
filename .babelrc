@@ -1,0 +1,10 @@
+{
+  "presets": [
+    "env",     // For browserlist support
+    "stage-0", // For class properties
+    "react"    // For JSX
+  ],
+  "plugins": [
+    "transform-decorators-legacy",
+  ]
+}
