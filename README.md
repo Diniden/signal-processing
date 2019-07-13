@@ -61,3 +61,24 @@ perlin.update(options);
 // Renders a canvas to the document to view the contents of the perlin noise
 perlin.debug(threshold);
 ```
+
+### Gaussian blur
+
+```javascript
+// Makes a new gaussian blur object. The kernal determines how far the blur will retrieve a feature to average into
+// the current data cell. The number of passes will determine the quality of the blur.
+mediumBlur = new GaussianBlur({
+  kernalSize: 5,
+  passes: 3
+});
+
+// Applies the blur to a given numerical dataset (number[][])
+mediumBlur.generate(data);
+```
+
+### Pascal Triangle
+
+```javascript
+// Generates a pascal triangle [[1], [1, 1], [1, 2, 1], ...]
+new PascalTriangle(levels);
+```
