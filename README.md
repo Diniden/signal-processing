@@ -12,11 +12,10 @@ Go to localhost: 8080
 
 ## Deploying
 
-The dev process also builds the deploy files. The project is already set up to simply commit changes to commit the
-library distribution files.
+Run build then commit the built files.
 
 ```
-npm run dev
+npm run build
 ```
 
 ## The API
