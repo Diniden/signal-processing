@@ -7410,6 +7410,7 @@ const d3_scale_1 = require("d3-scale");
 const gaussian_blur_1 = require("./gaussian-blur");
 
 const {
+  abs,
   floor,
   max,
   min,
@@ -7533,7 +7534,7 @@ let PerlinNoise = class PerlinNoise {
   }
   /**
    * Retrieves a rectangular sample from the perlin data.
-   * If a threshold is included, values below it will be zero'ed out.
+   * If a threshold is included, absolute values below it will be zero'ed out.
    */
 
 
@@ -7542,7 +7543,7 @@ let PerlinNoise = class PerlinNoise {
 
     if (threshold) {
       for (let i = x, end = min(this.data.length, x + width); i < end; ++i) {
-        out.push(this.data[i].slice(y, y + height).map(value => value > threshold ? value : 0));
+        out.push(this.data[i].slice(y, y + height).map(value => abs(value) > threshold ? value : 0));
       }
     } else {
       for (let i = x, end = min(this.data.length, x + width); i < end; ++i) {
@@ -7603,7 +7604,7 @@ let PerlinNoise = class PerlinNoise {
           const col = this.data[x];
 
           for (let y = 0, endy = col.length; y < endy; ++y) {
-            const val = 255 * (col[y] > threshold ? 1 : 0);
+            const val = 255 * (abs(col[y]) > threshold ? 1 : 0);
             data.data[index * 4] = val;
             data.data[index * 4 + 1] = val;
             data.data[index * 4 + 2] = val;

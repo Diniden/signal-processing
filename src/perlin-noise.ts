@@ -2,7 +2,7 @@ import { scaleLinear } from 'd3-scale';
 import { GaussianBlur } from './gaussian-blur';
 import { Vec2 } from './types';
 
-const { floor, max, min, random } = Math;
+const { abs, floor, max, min, random } = Math;
 
 export interface IPerlinOptions {
   /** Output width */
@@ -12,11 +12,12 @@ export interface IPerlinOptions {
   /** The amount of blurring to apply to the combined octaves */
   blendPasses: number;
   /**
-   * An octave is
-   * the start of perlin noise with a gaussian noise map. Each octave should be smaller
+   * An octave is the start of perlin noise with a gaussian noise map. Each octave should be smaller
    * than the end result. The octave is then scaled up then averaged with the
    * other octaves. Octaves closer to the output size creates greater detail in regions, while
    * octaves that are smaller creates larger features.
+   *
+   * Octaves are in the format [width, height]
    */
   octaves: Vec2[];
   /**
@@ -145,7 +146,7 @@ export class PerlinNoise {
 
   /**
    * Retrieves a rectangular sample from the perlin data.
-   * If a threshold is included, values below it will be zero'ed out.
+   * If a threshold is included, absolute values below it will be zero'ed out.
    */
   sample(
     x: number,
@@ -161,7 +162,7 @@ export class PerlinNoise {
         out.push(
           this.data[i]
             .slice(y, y + height)
-            .map(value => (value > threshold ? value : 0))
+            .map(value => (abs(value) > threshold ? value : 0))
         );
       }
     } else {
@@ -215,7 +216,7 @@ export class PerlinNoise {
           const col = this.data[x];
 
           for (let y = 0, endy = col.length; y < endy; ++y) {
-            const val = 255 * (col[y] > threshold ? 1 : 0);
+            const val = 255 * (abs(col[y]) > threshold ? 1 : 0);
             data.data[index * 4] = val;
             data.data[index * 4 + 1] = val;
             data.data[index * 4 + 2] = val;
