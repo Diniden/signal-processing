@@ -1,5 +1,5 @@
-import { scaleLinear } from 'd3-scale';
 import { GaussianBlur } from './gaussian-blur';
+import { scaleLinear } from './scale-linear';
 import { Vec2 } from './types';
 
 const { abs, floor, max, min, random } = Math;
@@ -75,12 +75,8 @@ export class PerlinNoise {
       const small: number[][] = [];
       const smallWidth = octave[0];
       const smallHeight = octave[1];
-      const scaleX = scaleLinear()
-        .domain([0, width])
-        .range([0, smallWidth]);
-      const scaleY = scaleLinear()
-        .domain([0, height])
-        .range([0, smallHeight]);
+      const scaleX = scaleLinear([0, width], [0, smallWidth]);
+      const scaleY = scaleLinear([0, height], [0, smallHeight]);
 
       // Make the octave base
       for (let x = 0; x < smallWidth; ++x) {
