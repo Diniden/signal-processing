@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "main": "./dist/ui/index.js",
   "types": "./dist/types/ui/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:diniden/signal-processing.git"
+  },
   "scripts": {
     "dev": "devops dev",
     "clean": "devops clean",
@@ -41,15 +45,4 @@
       "figmaUrl": "NA"
     }
   },
-  "native": {
-    "xcode": {
-      "tools": {
-        "path": "/Applications/Xcode.app/Contents/Developer",
-        "version": {
-          "min": "2397",
-          "max": "2397"
-        }
-      }
-    }
-  }
 }
