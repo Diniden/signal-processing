@@ -1,13 +1,25 @@
 {
   "name": "@diniden/signal-processing",
-  "version": "1.0.0",
-  "main": "dist/lib.js",
-  "types": "dist/src/index.d.ts",
+  "version": "1.1.0",
+  "main": "./dist/ui/index.js",
+  "types": "./dist/types/ui/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:diniden/signal-processing.git"
+  },
   "scripts": {
-    "dev": "runner run --no-docker",
-    "clean": "runner clean",
+    "dev": "devops dev",
+    "clean": "devops clean",
     "start": "node dist/server",
-    "build": "NODE_ENV=production tsc -d --emitDeclarationOnly --outDir dist/src --project ./tsconfig.json && runner build lib"
+    "build": "NODE_ENV=production tsc -d --emitDeclarationOnly --outDir dist/src --project ./tsconfig.json && runner build lib",
+    "component": "devops component",
+    "init": "devops init",
+    "pr": "devops pr --repoUrl \"https://github.com/diniden/signal-processing\" --repoType git --masterBranch master",
+    "release": "devops release",
+    "storybook": "devops storybook",
+    "test": "devops test",
+    "ts": "devops ts",
+    "url": "devops url"
   },
   "keywords": [],
   "author": "Diniden",
@@ -15,5 +27,22 @@
   "devDependencies": {
     "devops": "github:vega-studio/node-devops"
   },
-  "description": ""
+  "description": "",
+  "type": "module",
+  "hosts": {
+    "127.0.0.1": "local.diniden-signal-processing.com"
+  },
+  "url": {
+    "dev": "https://local.diniden-signal-processing.com",
+    "figma": "NA",
+    "repo": "https://github.com/diniden/signal-processing"
+  },
+  "skeleton": {
+    "answers": {
+      "repoUrl": "https://github.com/diniden/signal-processing",
+      "repoType": "git",
+      "masterBranch": "master",
+      "figmaUrl": "NA"
+    }
+  }
 }
