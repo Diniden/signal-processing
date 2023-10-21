@@ -1,6 +1,6 @@
 {
   "name": "@diniden/signal-processing",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "./dist/ui/index.js",
   "types": "./dist/types/ui/index.d.ts",
   "repository": {
