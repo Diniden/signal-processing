@@ -1,6 +1,6 @@
 export class PascalTriangle {
   /** Contains the triangles elements [[1], [1, 1], [1, 2, 1], etc] */
-  elements: number[][];
+  elements: number[][] = [];
 
   constructor(levels: number) {
     if (levels === 0) return;
@@ -44,14 +44,14 @@ export class PascalTriangle {
     // Make sure the elements matches the requested elements size exactly
     if (row.length - toTrim !== size) {
       console.warn(
-        'Error in pascal triangle gaussian kernal',
-        'Requested size',
+        "Error in pascal triangle gaussian kernal",
+        "Requested size",
         size,
-        'Row',
+        "Row",
         row,
-        'Trim amount',
+        "Trim amount",
         trim,
-        'Elements',
+        "Elements",
         this.elements
       );
     }
@@ -65,7 +65,7 @@ export class PascalTriangle {
 
     return {
       kernal,
-      total,
+      total
     };
   }
 }

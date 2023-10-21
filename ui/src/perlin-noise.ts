@@ -1,6 +1,6 @@
-import { GaussianBlur } from './gaussian-blur';
-import { scaleLinear } from './scale-linear';
-import { Vec2 } from './types';
+import { GaussianBlur } from "./gaussian-blur";
+import { scaleLinear } from "./scale-linear";
+import { Vec2 } from "./types";
 
 const { abs, floor, max, min, random } = Math;
 
@@ -34,9 +34,9 @@ export class PerlinNoise {
   /** The blurring kernal used to blur the data */
   private blur: GaussianBlur;
   /** The perlin data with values 0 - 1 */
-  data: number[][];
+  data!: number[][];
   /** Used for debug rendering the output */
-  private debugContext: HTMLCanvasElement;
+  private debugContext!: HTMLCanvasElement;
   /** The options used to construct the data */
   options: IPerlinOptions;
 
@@ -55,7 +55,7 @@ export class PerlinNoise {
     this.options = options;
     this.blur = new GaussianBlur({
       passes: options.blendPasses,
-      kernalSize: 9,
+      kernalSize: 9
     });
 
     this.update(options);
@@ -178,7 +178,7 @@ export class PerlinNoise {
 
     if (options.blendPasses) {
       this.blur.update({
-        passes: options.blendPasses,
+        passes: options.blendPasses
       });
     }
   }
@@ -194,12 +194,12 @@ export class PerlinNoise {
       return;
     }
 
-    const canvas = document.createElement('canvas').getContext('2d');
+    const canvas = document.createElement("canvas").getContext("2d");
 
     if (canvas) {
       const { valueRange } = this.options;
       const element = canvas.canvas;
-      document.getElementsByTagName('body')[0].appendChild(canvas.canvas);
+      document.getElementsByTagName("body")[0].appendChild(canvas.canvas);
       const width = (element.width = this.data.length);
       const height = (element.height = this.data[0].length);
       const data = canvas.getImageData(0, 0, width, height);
@@ -236,10 +236,10 @@ export class PerlinNoise {
       }
 
       canvas.putImageData(data, 0, 0);
-      element.style.position = 'fixed';
-      element.style.top = '0px';
-      element.style.left = '0px';
-      element.style.zIndex = '9999';
+      element.style.position = "fixed";
+      element.style.top = "0px";
+      element.style.left = "0px";
+      element.style.zIndex = "9999";
 
       this.debugContext = element;
     }

@@ -1,4 +1,4 @@
-import { PascalTriangle } from './pascal-triangle';
+import { PascalTriangle } from "./pascal-triangle";
 
 export interface IGaussianBlurOptions {
   /** Number of samples taken per data slot */
@@ -18,7 +18,7 @@ function clamp(val: number, minVal: number, maxVal: number) {
  */
 export class GaussianBlur {
   // This is a blur kernal used for blending
-  private kernal: number[];
+  private kernal: number[] = [];
   // These are the options for the blur operation
   options: IGaussianBlurOptions;
 
@@ -50,12 +50,12 @@ export class GaussianBlur {
       3: [-1, 0, 1],
       5: [-2, -1, 0, 1, 2],
       7: [-3, -2, -1, 0, 1, 2, 3],
-      9: [-4, -3, -2, -1, 0, 1, 2, 3, 4],
+      9: [-4, -3, -2, -1, 0, 1, 2, 3, 4]
     };
     const offset = offsets[kernal.length];
 
     if (!offset) {
-      console.warn('No offset suitable for kernal size');
+      console.warn("No offset suitable for kernal size");
       return data;
     }
 

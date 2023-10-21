@@ -1,18 +1,48 @@
-# App Stuff
-node_modules
-.cache
-dist/client
-dist/server
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# IDE Stuff
-.idea
-.vscode
-config.codekit3
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
 
-# Metadata
+# testing
+/coverage
+.env
+
+# production
+/build
+
+# misc
 .DS_Store
-thumbs.db
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-# These things cause more problems than they solve
-package-lock.json
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 yarn.lock
+storybook-static
+
+.tokens
+br-ui-*.tgz
+
+.VSCodeCounter
+compress-project
+project.tgz
+tsconfig.temp.json
+tsconfig.unit.json
+ReactDev.code-profile
+tools
+
+.vscode
+
+# Ignore local app/config files
+*.local.ts
+*.local.js
+*.local.tsx
+*.local.jsx
+
+# Ignore capacitor files that are outside of the devops system structure
+capacitor.config.json
