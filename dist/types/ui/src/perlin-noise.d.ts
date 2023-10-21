@@ -1,4 +1,4 @@
-import { Vec2 } from './types';
+import { Vec2 } from "./types";
 export interface IPerlinOptions {
     /** Output width */
     width: number;
@@ -33,8 +33,8 @@ export declare class PerlinNoise {
     private debugContext;
     /** The options used to construct the data */
     options: IPerlinOptions;
-    readonly width: number;
-    readonly height: number;
+    get width(): number;
+    get height(): number;
     /**
      * Provide the output size, and the size of the octaves generated.
      */

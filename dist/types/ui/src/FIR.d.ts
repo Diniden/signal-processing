@@ -1,4 +1,4 @@
-import { Vec2 } from './types';
+import { Vec2 } from "./types";
 /**
  * Performs a frequency filtration across a provided streamed in signal.
  * This filter can be adjusted via the seed values provided.
