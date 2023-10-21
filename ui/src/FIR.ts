@@ -14,15 +14,15 @@ export class FIRFilter {
    * When normalize is a value of 1, this behaves like a low pass FIR filter.
    */
   constructor(seedValues: Vec2[], normalize?: number) {
-    this.coefficients = seedValues.map(seed => seed[0]);
-    this.filter = seedValues.map(seed => seed[1]);
+    this.coefficients = seedValues.map((seed) => seed[0]);
+    this.filter = seedValues.map((seed) => seed[1]);
 
     if (normalize !== undefined) {
       let total = 0;
-      this.coefficients.forEach(c => (total += c));
-      this.coefficients = this.coefficients.map(
-        value => (value / total) * normalize
-      );
+      this.coefficients.forEach((c) => (total += c));
+      this.coefficients = this.coefficients.map((value) => {
+        return (value / total) * normalize;
+      });
     }
   }
 

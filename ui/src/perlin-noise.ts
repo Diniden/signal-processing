@@ -55,7 +55,7 @@ export class PerlinNoise {
     this.options = options;
     this.blur = new GaussianBlur({
       passes: options.blendPasses,
-      kernalSize: 9
+      kernalSize: 9,
     });
 
     this.update(options);
@@ -70,7 +70,7 @@ export class PerlinNoise {
     let perlin: number[][] = [];
 
     // Loop through each octave and multiply it into the perlin output
-    octaves.forEach(octave => {
+    octaves.forEach((octave) => {
       // Start with a smaller sized map of pure gray scale noise
       const small: number[][] = [];
       const smallWidth = octave[0];
@@ -158,7 +158,7 @@ export class PerlinNoise {
         out.push(
           this.data[i]
             .slice(y, y + height)
-            .map(value => (abs(value) > threshold ? value : 0))
+            .map((value) => (abs(value) > threshold ? value : 0))
         );
       }
     } else {
@@ -178,7 +178,7 @@ export class PerlinNoise {
 
     if (options.blendPasses) {
       this.blur.update({
-        passes: options.blendPasses
+        passes: options.blendPasses,
       });
     }
   }
@@ -186,7 +186,7 @@ export class PerlinNoise {
   /**
    * Renders a canvas on the screen showing the generated output.
    */
-  debug(threshold: number = 0, clear?: boolean) {
+  debug(threshold = 0, clear?: boolean) {
     if (clear) {
       if (this.debugContext) {
         this.debugContext.remove();

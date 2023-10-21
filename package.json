@@ -40,5 +40,16 @@
       "masterBranch": "master",
       "figmaUrl": "NA"
     }
+  },
+  "native": {
+    "xcode": {
+      "tools": {
+        "path": "/Applications/Xcode.app/Contents/Developer",
+        "version": {
+          "min": "2397",
+          "max": "2397"
+        }
+      }
+    }
   }
 }

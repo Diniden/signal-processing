@@ -61,11 +61,11 @@ export class PascalTriangle {
     // Get the new total of the row
     const total = kernal.reduce((prev, next) => next + prev, 0);
     // Normalize the kernal
-    kernal = kernal.map(value => value / total);
+    kernal = kernal.map((value) => value / total);
 
     return {
       kernal,
-      total
+      total,
     };
   }
 }

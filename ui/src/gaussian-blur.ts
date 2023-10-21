@@ -32,16 +32,16 @@ export class GaussianBlur {
    */
   generate(
     data: number[][],
-    offsetLeft: number = 0,
-    offsetTop: number = 0,
-    offsetRight: number = 0,
-    offsetBottom: number = 0
+    offsetLeft = 0,
+    offsetTop = 0,
+    offsetRight = 0,
+    offsetBottom = 0
   ) {
     if (!data || !data[0] || !data[0].length) return data;
 
     const { passes } = this.options;
     const kernal = this.kernal;
-    const outPass = data.map(col => col.slice(0));
+    const outPass = data.map((col) => col.slice(0));
     const width = data.length;
     const height = data[0].length;
 
@@ -50,7 +50,7 @@ export class GaussianBlur {
       3: [-1, 0, 1],
       5: [-2, -1, 0, 1, 2],
       7: [-3, -2, -1, 0, 1, 2, 3],
-      9: [-4, -3, -2, -1, 0, 1, 2, 3, 4]
+      9: [-4, -3, -2, -1, 0, 1, 2, 3, 4],
     };
     const offset = offsets[kernal.length];
 
